@@ -6,7 +6,7 @@
 /*   By: alejandrocamargo <acamargo@student.42.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 17:06:48 by alejandrocama     #+#    #+#             */
-/*   Updated: 2026/11/18 18:26:38 by alejandrocama    ###   ########.fr       */
+/*   Updated: 2026/11/19 11:36:32 by acamargo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	gof(int	**map, size_t rows_len, size_t cols_len, size_t ticks)
 				int	alive = 0;
 				for (size_t j = 0; j < 8; ++j)
 				{
-					int	x = rows + directions[j][0];
-					int y = cols + directions[j][1];
+					int	y = rows + directions[j][0];
+					int x = cols + directions[j][1];
 					if (x < 0 || x >= (int)rows_len || y < 0 || y >= (int)cols_len)
 						continue;
-					if (map[x][y] == 1)
+					if (map[y][x] != 0 && map[y][x] != 2)
 						++alive;
 				}
 				if (map[rows][cols] == 1 && (alive < 2 || alive > 3))
